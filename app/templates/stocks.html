@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinDOCKER Finance</title>
+    <link rel="icon" href="/Major Work Code/downloads/favicon.ico" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/stocks.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stocks.css') }}" />
+</head>
+
+<body>
+    <h1>Stocks</h1>
+    <div id="candlestick_stock"></div>
+    <div id="dates" style="display: none;">{{ dates | tojson }}</div>
+    <div id="close" style="display: none;">{{ close | tojson }}</div>
+    <div id="high" style="display: none;">{{ high | tojson }}</div>
+    <div id="low" style="display: none;">{{ low | tojson }}</div>
+    <div id="open" style="display: none;">{{ open | tojson }}</div>
+    <div id="last" style="display: none;">{{ last }}</div>
+    <div id="first" style="display: none;">{{ first }}</div>
+    <div id="lowStock" style="display: none;">{{ lowStock }}</div>
+    <div id="highStock" style="display: none;">{{ highStock }}</div>
+    <h2>Company Overview</h2>
+    <p><strong>Symbol:</strong> {{ company_overview["Symbol"] }}</p>
+    <p><strong>Name:</strong> {{ company_overview["Name"] }}</p>
+    <p><strong>Description:</strong> {{ company_overview["Description"] }}</p>
+    <p><strong>Price-to-Earnings (PE Ratio):</strong> {{ company_overview["PERatio"] }}</p>
+    <p><strong>Price-to-Earnings Growth (PEG Ratio):</strong> {{ company_overview["PEGRatio"] }}</p>
+    <p><strong>Price-to-Book (PB Ratio):</strong> {{ company_overview["PriceToBookRatio"] }}</p>
+    <p><strong>Dividend Yield:</strong> {{ company_overview["DividendYield"] }}</p>
+    <p><strong>Price-to-Sales (P/S Ratio):</strong> {{ company_overview["PriceToSalesRatioTTM"] }}</p>
+    <p><strong>Book Value Per Share:</strong> {{ company_overview["BookValue"] }}</p>
+    <p><strong>Earnings Per Share:</strong> {{ company_overview["EPS"] }}</p>
+    <p><strong>Return on Equity (ROE):</strong> {{ company_overview["ReturnOnEquityTTM"] }}</p>
+    <p><strong>Revenue TTM:</strong> {{ company_overview["RevenueTTM"] }}</p>
+    <p><strong>Gross Profit TTM:</strong> {{ company_overview["GrossProfitTTM"] }}</p>
+    <p><strong>Profit Margin:</strong> {{ company_overview["ProfitMargin"] }}</p>
+    <p><strong>Market Capitalization</strong> {{ company_overview["MarketCapitalization"] }}</p>
+    <p><strong>Beta:</strong> {{ company_overview["Beta"] }}</p>
+</body>
+
+</html>
+{% endblock %}

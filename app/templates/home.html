@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinDOCKER Finance</title>
+    <link rel="icon" href="/Major Work Code/downloads/favicon.ico" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+  </head>
+
+<body>
+  <video class="video" autoplay loop muted plays-inline>
+    <source src="{{ url_for('static', filename='downloads/stock.mp4') }}" type="video/mp4" />
+  </video>
+  <div class="stock-text">
+    <p class="p">FinDOCKER Finance</p>
+    <p class="p4">Facilitating stock market trends through the combination of
+      fundamental and technical analysis. Our stock view
+      caters for the investors in both short and long term investment and includes machine learning models.
+    </p>
+    <p>Interested in stock view?</p>
+    <a href='/stock'><button>Take me to Stocks!</button></a>
+  </div>
+  <div class="container_1">
+    <!-- <img class="forex_image" src="{{ url_for('static', filename='downloads/forex.png') }}" width="600", height="600"> -->
+  </div>
+  <div class="forex-text">
+    <p class="p1">Discover the potential of currency trading with our advanced insights and real-time data.</p>
+    <a href="/forex"><button>Check out Forex View!</button></a>
+  </div>
+  <div class="scroll-container">
+    <img src="{{ url_for('static', filename='downloads/finance.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/energy.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/materials.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/healthcare.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/realestate.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/informationtechnology.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/utilities.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/consumerstaples.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/consumerdiscretionary.png')}}" width="100" , height="100">
+    <img src="{{ url_for('static', filename='downloads/industrials.png')}}" width="100" , height="100">
+  </div>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% endblock %}

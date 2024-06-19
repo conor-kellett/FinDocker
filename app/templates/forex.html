@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candlestick Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/forex.js') }}"></script>
+</head>
+<body>
+    <div id="candlestick_stock"></div> 
+    <div id="dates" style="display: none;">{{ dates | tojson }}</div>
+    <div id="close" style="display: none;">{{ close | tojson }}</div>
+    <div id="high" style="display: none;">{{ high | tojson }}</div>
+    <div id="low" style="display: none;">{{ low | tojson }}</div>
+    <div id="open" style="display: none;">{{ open | tojson }}</div>
+    <div id="last" style="display: none;">{{ last }}</div>
+    <div id="first" style="display: none;">{{ first }}</div>
+    <div id="lowStock" style="display: none;">{{ lowStock }}</div>
+    <div id="highStock" style="display: none;">{{ highStock }}</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,22 @@
+img {
+  margin-left: 70px;
+}
+
+.p1 {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 45px;
+  margin-top: 45px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  transition-duration: 0.2s;
+  border-radius: 15%;
+  height: 50px;
+}
+
+button:hover {
+  background-color: #5970F6;
+  color: white;
+}
