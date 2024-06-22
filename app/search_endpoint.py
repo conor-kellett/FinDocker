@@ -1,12 +1,13 @@
 import requests
-import json 
+import json
 
 stock = "IBM"
 
-url = ("https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords="
-       + stock
-       + "&apikey=C9RBUU7ECRRCBP9R"
-       )
+url = (
+    "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords="
+    + stock
+    + "&apikey=C9RBUU7ECRRCBP9R"
+)
 r = requests.get(url)
 data = r.json()
 

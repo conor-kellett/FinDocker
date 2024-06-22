@@ -7,8 +7,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticker Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ticker_search.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ticker_search.js') }}">
 </head>
 <body>
+    <h1>Search for a Stock Symbol</h1>
+    <form method="POST">
+        <input type="text" name="keyword" placeholder="Enter keyword">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if data %}
+    <h2>Search Results</h2>
+    <ul>
+        {% for match in data['bestMatches'] %}
+        <li>{{ match['1. symbol'] }}: {{ match['2. name'] }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>
 {% endblock %}

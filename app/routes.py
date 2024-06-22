@@ -1,4 +1,5 @@
-from flask import render_template, Flask
+from flask import Flask, request, render_template
+import requests
 import json
 from datetime import date, timedelta
 
@@ -7,7 +8,7 @@ app = Flask(__name__)
 
 def read_json_file(filepath):
     with open(filepath, "r") as f:
-        data = json.loads(f.read())  # .replace("'", '"'))
+        data = json.loads(f.read())
     return data
 
 
@@ -123,9 +124,11 @@ def get_company_overview_data(file_path):
     data = read_json_file(file_path)
     return data
 
+
 def get_search_endpoint(file_path):
     data = read_json_file(file_path)
-    return data  
+    return data
+
 
 @app.route("/")
 @app.route("/home", methods=["GET", "POST"])
@@ -133,12 +136,23 @@ def index():
     return render_template("home.html", title="Home")
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "POST":
+        keyword = request.form.get(["keyword"])
+        api_key = "C9RBUU7ECRRCBP9R"
+        url = f"https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords={keyword}&apikey={api_key}"
+        r = request.get(url)
+        data = r.json()
+    return render_template("ticker_search.html", data=data)
+
+
 @app.route("/stocks", methods=["GET", "POST"])
 def stock():
     stock_data = get_stock_data("app/stocks.json")
     company_overview = get_company_overview_data("app/company_overview.json")
     return render_template(
-        "stocks.html",
+        "ticker_search.html",
         title="Stock",
         highStock=stock_data["highest_stock"],
         lowStock=stock_data["lowest_stock"],
