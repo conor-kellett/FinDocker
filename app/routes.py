@@ -120,12 +120,22 @@ def get_forex_data(file_path):
     }
 
 
+def get_search_endpoint(file_path):
+    data = read_json_file(file_path)
+    return data
+
+
 def get_company_overview_data(file_path):
     data = read_json_file(file_path)
     return data
 
 
-def get_search_endpoint(file_path):
+def get_real_gdp_data(file_path):
+    data = read_json_file(file_path)
+    return data
+
+
+def get_inflation_data(file_path):
     data = read_json_file(file_path)
     return data
 
@@ -149,10 +159,10 @@ def search():
 
 @app.route("/stocks", methods=["GET", "POST"])
 def stock():
-    stock_data = get_stock_data("app/stocks.json")
-    company_overview = get_company_overview_data("app/company_overview.json")
+    stock_data = get_stock_data("app/json/stocks.json")
+    company_overview = get_company_overview_data("app/json/company_overview.json")
     return render_template(
-        "ticker_search.html",
+        "stocks.html",
         title="Stock",
         highStock=stock_data["highest_stock"],
         lowStock=stock_data["lowest_stock"],
@@ -170,6 +180,8 @@ def stock():
 @app.route("/forex", methods=["GET", "POST"])
 def forex():
     forex_data = get_forex_data("app/forex.json")
+    real_gdp = get_real_gdp_data("app/real_gdp.json")
+    inflation = get_inflation_data("app/inflation.json")
     return render_template(
         "forex.html",
         title="Forex",
@@ -182,6 +194,8 @@ def forex():
         open=forex_data["all_open"],
         high=forex_data["all_high"],
         dates=forex_data["all_dates"],
+        real_gdp=real_gdp,
+        inflation=inflation,
     )
 
 

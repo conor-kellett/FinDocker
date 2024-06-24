@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
       l: 60
     },
     showlegend: false,
-    paper_bgcolor: 'black',
-    plot_bgcolor: 'black',
     xaxis: {
       autorange: true,
       domain: [0, 1],

@@ -55,3 +55,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
   Plotly.newPlot('candlestick_stock', data, layout)
 })
+

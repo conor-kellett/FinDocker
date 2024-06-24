@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <h1>Stocks</h1>
+    <h1>Stock Chart</h1>
     <div id="candlestick_stock"></div>
     <div id="dates" style="display: none;">{{ dates | tojson }}</div>
     <div id="close" style="display: none;">{{ close | tojson }}</div>
@@ -31,7 +31,7 @@
     <div id="first" style="display: none;">{{ first }}</div>
     <div id="lowStock" style="display: none;">{{ lowStock }}</div>
     <div id="highStock" style="display: none;">{{ highStock }}</div>
-    <h2>Company Overview</h2>
+    <h2>Fundamentals</h2>
     <p><strong>Symbol:</strong> {{ company_overview["Symbol"] }}</p>
     <p><strong>Name:</strong> {{ company_overview["Name"] }}</p>
     <p><strong>Description:</strong> {{ company_overview["Description"] }}</p>

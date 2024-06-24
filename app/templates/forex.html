@@ -9,6 +9,7 @@
     <script src="{{ url_for('static', filename='js/forex.js') }}"></script>
 </head>
 <body>
+    <h1>Forex Chart</h1>
     <div id="candlestick_stock"></div> 
     <div id="dates" style="display: none;">{{ dates | tojson }}</div>
     <div id="close" style="display: none;">{{ close | tojson }}</div>
@@ -19,6 +20,12 @@
     <div id="first" style="display: none;">{{ first }}</div>
     <div id="lowStock" style="display: none;">{{ lowStock }}</div>
     <div id="highStock" style="display: none;">{{ highStock }}</div>
+    <h2>Real GDP</h2>
+    <p><strong>Date:</strong> {{ real_gdp["data"][0]["date"] }}</p>
+    <p><strong>Value:</strong> {{ real_gdp["data"][0]["value"] }}</p>
+    <h2>Inflation</h2>
+    <p><strong>Date:</strong> {{ inflation["data"][0]["date"] }}</p>
+    <p><strong>Value:</strong> {{ inflation["data"][0]["value"] }}</p>
 </body>
 </html>
 {% endblock %}
